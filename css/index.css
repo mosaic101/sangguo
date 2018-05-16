@@ -82,8 +82,94 @@ header h1{font-family: 方正姚体;font-size: 80px;margin: 30px 0;}
 header h3{font-size: 38px;font-weight: lighter;letter-spacing:5px}
 header p{display: inline-block;border:1px solid #fff;font-size:26px;padding: 10px;font-weight: lighter;}
 .btn{width:565px;height: 490px;margin:80px auto 15px ; position: relative;}
-.btn a{position: absolute;width: 200px;height: 200px;top: 155px;left: 180px;}
-.alertShow{ position: absolute; top: 500px;left: 17%;width: 500px;height: 250px;border-radius: 15px;background-color:#7a28bc;opacity: 0.8;text-align: center;margin: 0 auto;font-size: 30px;}
-.alertShow p{line-height: 50px;}
+.btn a{position: absolute;width: 200px;height: 200px;top: 190px;left: 170px;}
+.alertShow,.alertShow2{ position: absolute; top: 500px;left: 17%;width: 500px;height: 250px;border-radius: 15px;background-color:#7a28bc;opacity: 0.8;text-align: center;margin: 0 auto;font-size: 30px;}
+.alertShow p,.alertShow2 p{line-height: 50px;}
 footer{font-size: 26px;padding:0 100px;font-weight: lighter;position: absolute;bottom:190px;left: 0;}
 .back_btn{font-size: 34px;text-align: center;width: 340px;height: 100px;line-height: 100px;border:1px solid #fff;border-radius: 50px; position: absolute;bottom: 20%;left: 205px;}
+.norun{
+     background: url("../images/btn01.png") no-repeat; 
+     width:540px;
+     height:540px;
+}
+
+ @keyframes run{
+    0% {background-position:-540px -0;}
+    6.66%{background-position: -3780px -0;}
+    13.33%{background-position:-1080px -0;}
+    20%{background-position:-1620px -0;}
+    26.66%{background-position: -2160px -0;}
+    33.33% {background-position:-2700px -0;}
+    40%{background-position:-3240px -0;}
+    46.66%{background-position:-0px -0px;}
+    53.33%{background-position:-4320px -0;}
+    60%{background-position:-4860px -0;}
+    66.66% {background-position:-5400px -0;}
+    73.33%{background-position:-5940px -0;}
+    80%{background-position:-6480px -0}
+    86.66%{background-position:-7020px -0;}
+    93.33%{background-position: -7560px -0;}
+    100%{background-position: -7560px -0;}
+ }
+@-moz-keyframes run{
+    0% {background-position:-540px -0;}
+    6.66%{background-position: -3780px -0;}
+    13.33%{background-position:-1080px -0;}
+    20%{background-position:-1620px -0;}
+    26.66%{background-position: -2160px -0;}
+    33.33% {background-position:-2700px -0;}
+    40%{background-position:-3240px -0;}
+    46.66%{background-position:-0px -0px;}
+    53.33%{background-position:-4320px -0;}
+    60%{background-position:-4860px -0;}
+    66.66% {background-position:-5400px -0;}
+    73.33%{background-position:-5940px -0;}
+    80%{background-position:-6480px -0}
+    86.66%{background-position:-7020px -0;}
+    93.33%{background-position: -7560px -0;}
+    100%{background-position: -7560px -0;}
+ }
+@-webkit-keyframes run{
+    0% {background-position:-540px -0;}
+    6.66%{background-position: -3780px -0;}
+    13.33%{background-position:-1080px -0;}
+    20%{background-position:-1620px -0;}
+    26.66%{background-position: -2160px -0;}
+    33.33% {background-position:-2700px -0;}
+    40%{background-position:-3240px -0;}
+    46.66%{background-position:-0px -0px;}
+    53.33%{background-position:-4320px -0;}
+    60%{background-position:-4860px -0;}
+    66.66% {background-position:-5400px -0;}
+    73.33%{background-position:-5940px -0;}
+    80%{background-position:-6480px -0}
+    86.66%{background-position:-7020px -0;}
+    93.33%{background-position: -7560px -0;}
+    100%{background-position: -7560px -0;}
+ }
+@-o-keyframes run{
+    0% {background-position:-540px -0;}
+    6.66%{background-position: -3780px -0;}
+    13.33%{background-position:-1080px -0;}
+    20%{background-position:-1620px -0;}
+    26.66%{background-position: -2160px -0;}
+    33.33% {background-position:-2700px -0;}
+    40%{background-position:-3240px -0;}
+    46.66%{background-position:-0px -0px;}
+    53.33%{background-position:-4320px -0;}
+    60%{background-position:-4860px -0;}
+    66.66% {background-position:-5400px -0;}
+    73.33%{background-position:-5940px -0;}
+    80%{background-position:-6480px -0}
+    86.66%{background-position:-7020px -0;}
+    93.33%{background-position: -7560px -0;}
+    100%{background-position: -7560px -0;}
+ }
+   
+.btnRun{
+            width:540px;
+            height:540px;
+             background: url("../images/btnsprites.png") ;
+            animation:run 1.2s steps(1, end) 1;
+             -webkit-animation:run 1.2s steps(1, end) 1;
+         }

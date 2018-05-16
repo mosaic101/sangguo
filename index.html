@@ -19,18 +19,22 @@
     <div class="t_c">
         <div class="btn">
             <a href="javascript:;"></a>
-            <img src="images/btn.png" alt="" id="btnChange">
+            <div alt="" id="btnChange" style="margin:0 auto;" class="norun"></div>
         </div>
        <div class="back_btn" style="display:none" onclick="window.close();WeixinJSBridge.call('closeWindow');">
            <p>退出</p>
        </div>
     </div>
     <footer class="t_c">
-        <p>此开幕按钮将在2018年5月20日上午10:00准时开启，请各位准备好巴拉巴拉，敬请期待！</p>
+        <p>春城五月天，醉美桑国园。忆乡愁，不忧桑——第五届句容桑果紫酒节。</p>
     </footer>
     <div class="alertShow"  style="display: none;" >
         <p style="padding-top:70px;">活动将在2018年5月19日</p>
-        <p>上午10:00准时开启，敬请期待！</p>
+        <p>上午09:15准时开启，敬请期待！</p>
+    </div>
+     <div class="alertShow2"  style="display: none;" >
+        <p style="padding-top:70px;">抱歉!活动已结束~</p>
+        <p>下次早点来哦~</p>
     </div>
 </body>
 <script>
@@ -41,10 +45,11 @@ $(function(){
   // 判断活动是否开始
         function GetRTime(){
             var StartTime = new Date('2018/05/05 23:59:59');
+            var EndTime = new Date('2018/05/17 11:05:00');
             var NowTime = new Date();
             var t =StartTime.getTime() - NowTime.getTime();
-            
-            if(t>=0){                  
+            var s=NowTime.getTime() -EndTime.getTime();
+            if(t>=0 && s<0){                  
     // 如果未开始
                $(".btn>a").on("click", function(e){
                  if($(".alertShow").is(":hidden")){
@@ -60,16 +65,31 @@ $(function(){
                 $(".alertShow").on("click", function(e){
                     e.stopPropagation();
                 });
-            }else{
+            }if(t<0 && s<0){
     // 活动开始
                  $(".btn>a").on("click", function(e){
                 
-                    $("#btnChange").attr("src","images/btn.gif");
-                    
-                       setTimeout(litSlash,2000);
+                    $("#btnChange").remove("norun");
+                    $("#btnChange").addClass("btnRun")
+                      setTimeout(litSlash,1200);
 
                  })
                
+            }if(t<0 && s>0){
+                 $(".btn>a").on("click", function(e){
+                     if($(".alertShow2").is(":hidden")){
+                    $(".alertShow2").show();
+                  }else{
+                     $(".alertShow2").hide();
+                   }
+                  $(document).one("click", function(){
+                       $(".alertShow2").hide();
+                    });
+                     e.stopPropagation();
+                 })
+                 $(".alertShow2").on("click", function(e){
+                    e.stopPropagation();
+                });
             }
           
            
@@ -77,6 +97,7 @@ $(function(){
 function litSlash(){
     $("body").addClass('flash');
     setTimeout(litSlash2,1000);
+
 }
 function litSlash2(){
     $(".btn").remove();
