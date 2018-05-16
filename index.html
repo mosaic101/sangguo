@@ -37,14 +37,10 @@
     </div>
 </body>
 <script>
-    $(document).ready(
-    function(){
-        GetRTime()
-    })
-$(function(){
-   
-    addLoadEvent(preloader);
-})
+window.onload=function(){
+    GetRTime()
+}
+
   // 判断活动是否开始
         function GetRTime(){
             var StartTime = new Date('2018/05/05 23:59:59');
