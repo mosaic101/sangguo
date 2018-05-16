@@ -10,6 +10,7 @@ b, em, h1, h2, h3, h4, h5, h6, i {
 	font-weight: 400;
 	font-style: normal
 }
+.yujiazai{background: url("../images/btnsprites.png") no-repeat -9999px -9999px}
 a { text-decoration: none;color: #000;}
 .f_l { float: left; display: inline }
 .f_r { float: right; display: inline }
@@ -173,3 +174,9 @@ footer{font-size: 26px;padding:0 100px;font-weight: lighter;position: absolute;b
             animation:run 1.2s steps(1, end) 1;
              -webkit-animation:run 1.2s steps(1, end) 1;
          }
+.endtext{
+    font-size: 26px;
+    font-weight: lighter;
+    text-align: center;
+    margin-top:230px; 
+}

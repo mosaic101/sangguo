@@ -12,8 +12,9 @@
 </head>
 <body>
     <header class="t_c">
-       <img src="images/title.png" style="width: 376px;">
+       <img src="images/title.png" style="width: 467px;">
     </header>
+    <div class="yujiazai" style="display: none;"></div>
     <div class="t_c">
         <div class="btn">
             <a href="javascript:;"></a>
@@ -24,7 +25,7 @@
        </div>
     </div>
     <footer class="t_c">
-        <p>春城五月天，醉美桑国园。忆乡愁，不忧桑——第五届句容桑果紫酒节。</p>
+        <p>春城五月天，醉美桑果园。</p><p>忆乡愁，不忧桑——第五届句容桑果紫酒节。</p>
     </footer>
     <div class="alertShow"  style="display: none;" >
         <p style="padding-top:70px;">活动将在2018年5月19日</p>
@@ -36,10 +37,10 @@
     </div>
 </body>
 <script>
-$(function(){
+window.onload=function(){
     GetRTime()
-    addLoadEvent(preloader);
-})
+}
+
   // 判断活动是否开始
         function GetRTime(){
             var StartTime = new Date('2018/05/05 23:59:59');
@@ -67,7 +68,7 @@ $(function(){
     // 活动开始
                  $(".btn>a").on("click", function(e){
                 
-                    $("#btnChange").remove("norun");
+                    $("#btnChange").removeClass("norun");
                     $("#btnChange").addClass("btnRun")
                       setTimeout(litSlash,1200);
 
@@ -98,32 +99,11 @@ function litSlash(){
 
 }
 function litSlash2(){
-    $(".btn").remove();
+    $(".btn").html(" <div class='endtext'><p>春城五月天，醉美桑果园。</p><p>忆乡愁，不忧桑——第五届句容桑果紫酒节。</p></div>");
     $("footer").remove();
     $(".back_btn").show();
 }
 
-
-function preloader() {
-    if (document.images) {
-        // alert(123)
-        var img1 = new Image();
-        img1.src = "images/btnsprites.png"
-    }
-}
-function addLoadEvent(func) {
-    var oldonload = window.onload;
-    if (typeof window.onload != 'function') {
-        window.onload = func;
-    } else {
-        window.onload = function() {
-            if (oldonload) {
-                oldonload();
-            }
-            func();
-        }
-    }
-}
 
 </script>
 </html>
