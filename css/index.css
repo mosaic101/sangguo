@@ -171,7 +171,7 @@ footer{font-size: 26px;padding:0 100px;font-weight: lighter;position: absolute;b
 .btnRun{
             width:540px;
             height:540px;
-             background: url("../images/btnsprites.png") ;
+             background: url("https://static.oschina.net/uploads/img/201805/17003402_woJO.png") ;
             animation:run 1.2s steps(1, end) 1;
              -webkit-animation:run 1.2s steps(1, end) 1;
          }
