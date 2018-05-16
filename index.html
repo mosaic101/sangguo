@@ -12,14 +12,12 @@
 </head>
 <body>
     <header class="t_c">
-        <h3>2018</h3>
-        <h1>句容桑果节</h1>
-        <p>开 幕 式</p>
+       <img src="images/title.png" style="width: 376px;">
     </header>
     <div class="t_c">
         <div class="btn">
             <a href="javascript:;"></a>
-            <div alt="" id="btnChange" style="margin:0 auto;z-index:500;" class="norun"></div>
+            <div alt="" id="btnChange" style="margin:0 auto;z-index: 500" class="norun"></div>
         </div>
        <div class="back_btn" style="display:none" onclick="window.close();WeixinJSBridge.call('closeWindow');">
            <p>退出</p>
@@ -40,7 +38,7 @@
 <script>
 $(function(){
     GetRTime()
-
+    addLoadEvent(preloader);
 })
   // 判断活动是否开始
         function GetRTime(){
@@ -104,5 +102,28 @@ function litSlash2(){
     $("footer").remove();
     $(".back_btn").show();
 }
+
+
+function preloader() {
+    if (document.images) {
+        // alert(123)
+        var img1 = new Image();
+        img1.src = "images/btnsprites.png"
+    }
+}
+function addLoadEvent(func) {
+    var oldonload = window.onload;
+    if (typeof window.onload != 'function') {
+        window.onload = func;
+    } else {
+        window.onload = function() {
+            if (oldonload) {
+                oldonload();
+            }
+            func();
+        }
+    }
+}
+
 </script>
 </html>
