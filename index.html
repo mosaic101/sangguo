@@ -12,39 +12,45 @@
 </head>
 <body>
     <header class="t_c">
-        <h3>2018</h3>
-        <h1>句容桑果节</h1>
-        <p>开 幕 式</p>
+       <img src="images/title.png" style="width: 467px;">
     </header>
+    <div class="yujiazai" style="display: none;"></div>
     <div class="t_c">
         <div class="btn">
             <a href="javascript:;"></a>
-            <div alt="" id="btnChange" style="margin:0 auto;" class=" norun"></div>
+            <div alt="" id="btnChange" style="margin:0 auto;" class="norun"></div>
         </div>
        <div class="back_btn" style="display:none" onclick="window.close();WeixinJSBridge.call('closeWindow');">
            <p>退出</p>
        </div>
     </div>
     <footer class="t_c">
-        <p>此开幕按钮将在2018年5月20日上午10:00准时开启，请各位准备好巴拉巴拉，敬请期待！</p>
+        <p>春城五月天，醉美桑果园。</p><p>忆乡愁，不忧桑——第五届句容桑果紫酒节。</p>
     </footer>
     <div class="alertShow"  style="display: none;" >
         <p style="padding-top:70px;">活动将在2018年5月19日</p>
-        <p>上午10:00准时开启，敬请期待！</p>
+        <p>上午09:15准时开启，敬请期待！</p>
+    </div>
+     <div class="alertShow2"  style="display: none;" >
+        <p style="padding-top:70px;">抱歉!活动已结束~</p>
+        <p>下次早点来哦~</p>
     </div>
 </body>
 <script>
 $(function(){
-    GetRTime()
-
+   GetRTime()
 })
+ 
+
+
   // 判断活动是否开始
         function GetRTime(){
             var StartTime = new Date('2018/05/05 23:59:59');
+            var EndTime = new Date('2018/05/17 11:05:00');
             var NowTime = new Date();
             var t =StartTime.getTime() - NowTime.getTime();
-            
-            if(t>=0){                  
+            var s=NowTime.getTime() -EndTime.getTime();
+            if(t>=0 && s<0){                  
     // 如果未开始
                $(".btn>a").on("click", function(e){
                  if($(".alertShow").is(":hidden")){
@@ -60,28 +66,70 @@ $(function(){
                 $(".alertShow").on("click", function(e){
                     e.stopPropagation();
                 });
-            }else{
+            }if(t<0 && s<0){
     // 活动开始
                  $(".btn>a").on("click", function(e){
-                
-                    $("#btnChange").remove("norun");
-                    $("#btnChange").addClass("btnRun")
-                      setTimeout(litSlash,600);
+           //         var imgUrl = 'https://static.oschina.net/uploads/img/201805/17003402_woJO.png';
+           //      var positions = ['-540 -0;','-3780 -0','-1080px -0', '-1620 -0;','-2160 0','-2700 0','-3240 -0','-0 -0','-4320 -0','-4860 -0','-5400 -0','-5940 -0','-6480 -0','-7020 -0','-7560 -0'];
+           //      var ele = document.getElementById('btnChange');
+           // var times=1;
+                    $("#btnChange").removeClass("norun");
+                    $("#btnChange").addClass("btnRun");
+                    // animation(ele,positions,imgUrl,times);
+                      setTimeout(litSlash,1200);
 
                  })
                
+            }if(t<0 && s>0){
+                 $(".btn>a").on("click", function(e){
+                     if($(".alertShow2").is(":hidden")){
+                    $(".alertShow2").show();
+                  }else{
+                     $(".alertShow2").hide();
+                   }
+                  $(document).one("click", function(){
+                       $(".alertShow2").hide();
+                    });
+                     e.stopPropagation();
+                 })
+                 $(".alertShow2").on("click", function(e){
+                    e.stopPropagation();
+                });
             }
           
            
         }
 function litSlash(){
     $("body").addClass('flash');
-    setTimeout(litSlash2,900);
+    $("#btnChange").addClass("norun")
+    setTimeout(litSlash2,1000);
+
 }
 function litSlash2(){
-    $(".btn").remove();
+    $(".btn").html(" <div class='endtext'><p>春城五月天，醉美桑果园。</p><p>忆乡愁，不忧桑——第五届句容桑果紫酒节。</p></div>");
     $("footer").remove();
     $(".back_btn").show();
 }
+// js实现帧动画
+
+    function animation(ele, positions, imgUrl,times){
+           ele.style.backgroundImage = 'url(' + imgUrl + ')';
+           ele.style.backgroundRepeat = 'no-repeat';
+           ele.style.animationIterationCount=times;
+           var index = 0;
+           
+           function run(){
+              var position = positions[index].split(' ');
+              ele.style.backgroundPosition = position[0] + 'px ' + position[1] + 'px';
+            
+              index++;
+              if(index >= positions.length){
+                  index = 0;
+              }
+              setTimeout(run, 80);
+           }
+           run();
+       }
+        
 </script>
 </html>

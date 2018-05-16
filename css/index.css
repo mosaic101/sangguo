@@ -1,7 +1,7 @@
 
 *{padding: 0; margin: 0;border:0;}
 a img,body,button,dd,div,dl,dt,form,h1,h2,h3,h4,h5,h6,html,img,input,li,menu,ol,p,textarea,ul{padding:0;margin:0;border:0;}
-body{color:#fff;font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;background-image:url(../images/bg.jpg);background-repeat: no-repeat;background-color: #000;background-size:cover; }
+body{color:#fff;font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;background-image:url('https://static.oschina.net/uploads/img/201805/17004144_S9hs.jpg ');background-repeat: no-repeat;background-color: #000;background-size:cover; }
 li, ol, ul { list-style: none }
 .c { margin: 0 auto }
 .elli {overflow: hidden }
@@ -10,7 +10,7 @@ b, em, h1, h2, h3, h4, h5, h6, i {
 	font-weight: 400;
 	font-style: normal
 }
-.yujiazai{background: url("../images/btnsprites.png") no-repeat -9999px -9999px}
+/*.yujiazai{background: url("../images/btnsprites.png") no-repeat -9999px -9999px}*/
 a { text-decoration: none;color: #000;}
 .f_l { float: left; display: inline }
 .f_r { float: right; display: inline }
@@ -36,7 +36,7 @@ img{width: 100%;}
         opacity:1;
     }
     10% {
-        background:url(../images/bg.jpg) no-repeat cover;
+        background:url("https://static.oschina.net/uploads/img/201805/17004144_S9hs.jpg ") no-repeat cover;
     }
     20% {
         background: #abdb3a;
@@ -46,7 +46,7 @@ img{width: 100%;}
         /*opacity:1;*/
     }
     40% {
-        background:url(../images/bg.jpg) no-repeat cover;
+        background:url("https://static.oschina.net/uploads/img/201805/17004144_S9hs.jpg ") no-repeat cover;
     }
     50% {
         background: #abdb3a;
@@ -56,13 +56,13 @@ img{width: 100%;}
         /*opacity:1;*/
     }
     70% {
-        background:url(../images/bg.jpg) no-repeat cover;
+        background:url("https://static.oschina.net/uploads/img/201805/17004144_S9hs.jpg ") no-repeat cover;
     }
     80% {
         background: #abdb3a;
     }
     100% {
-        background:url(../images/bg.jpg) no-repeat cover;
+        background:url("https://static.oschina.net/uploads/img/201805/17004144_S9hs.jpg ") no-repeat cover;
     }
 }
 
@@ -89,13 +89,13 @@ header p{display: inline-block;border:1px solid #fff;font-size:26px;padding: 10p
 footer{font-size: 26px;padding:0 100px;font-weight: lighter;position: absolute;bottom:190px;left: 0;}
 .back_btn{font-size: 34px;text-align: center;width: 340px;height: 100px;line-height: 100px;border:1px solid #fff;border-radius: 50px; position: absolute;bottom: 20%;left: 205px;}
 .norun{
-     background: url("../images/btn01.png") no-repeat; 
+     background: url("https://static.oschina.net/uploads/img/201805/17004204_DKcU.png") no-repeat; 
      width:540px;
      height:540px;
      z-index: 5000 !important;
 }
 
- /*@keyframes run{
+ @keyframes run{
     0% {background-position:-540px -0;}
     6.66%{background-position: -3780px -0;}
     13.33%{background-position:-1080px -0;}
@@ -174,7 +174,7 @@ footer{font-size: 26px;padding:0 100px;font-weight: lighter;position: absolute;b
              background: url("../images/btnsprites.png") ;
             animation:run 1.2s steps(1, end) 1;
              -webkit-animation:run 1.2s steps(1, end) 1;
-         }*/
+         }
 .endtext{
     font-size: 26px;
     font-weight: lighter;
