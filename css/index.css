@@ -81,7 +81,7 @@ header{margin-top: 120px;}
 header h1{font-family: 方正姚体;font-size: 80px;margin: 30px 0;}
 header h3{font-size: 38px;font-weight: lighter;letter-spacing:5px}
 header p{display: inline-block;border:1px solid #fff;font-size:26px;padding: 10px;font-weight: lighter;}
-.btn{width:565px;height: 490px;margin:80px auto 15px ; position: relative;}
+.btn{width:565px;height: 490px;margin:0 auto 15px ; position: relative;}
 .btn a{position: absolute;width: 200px;height: 200px;top: 190px;left: 170px;}
 .alertShow,.alertShow2{ position: absolute; top: 500px;left: 17%;width: 500px;height: 250px;border-radius: 15px;background-color:#7a28bc;opacity: 0.8;text-align: center;margin: 0 auto;font-size: 30px;}
 .alertShow p,.alertShow2 p{line-height: 50px;}
