@@ -18,7 +18,7 @@
     <div class="t_c">
         <div class="btn">
             <a href="javascript:;"></a>
-            <div alt="" id="btnChange" style="margin:0 auto;z-index: 500" class="norun"></div>
+            <div alt="" id="btnChange" style="margin:0 auto;" class="norun"></div>
         </div>
        <div class="back_btn" style="display:none" onclick="window.close();WeixinJSBridge.call('closeWindow');">
            <p>退出</p>
@@ -37,9 +37,11 @@
     </div>
 </body>
 <script>
-window.onload=function(){
-    GetRTime()
-}
+$(function(){
+   GetRTime()
+})
+ 
+
 
   // 判断活动是否开始
         function GetRTime(){
@@ -67,9 +69,13 @@ window.onload=function(){
             }if(t<0 && s<0){
     // 活动开始
                  $(".btn>a").on("click", function(e){
-                
+                   var imgUrl = 'images/btnsprites.png';
+                var positions = ['-540 -0;','-3780 -0','-1080px -0', '-1620 -0;','-2160 0','-2700 0','-3240 -0','-0 -0','-4320 -0','-4860 -0','-5400 -0','-5940 -0','-6480 -0','-7020 -0','-7560 -0'];
+                var ele = document.getElementById('btnChange');
+           var times=1;
                     $("#btnChange").removeClass("norun");
-                    $("#btnChange").addClass("btnRun")
+                    // $("#btnChange").addClass("btnRun");
+                    animation(ele,positions,imgUrl,times);
                       setTimeout(litSlash,1200);
 
                  })
@@ -95,7 +101,8 @@ window.onload=function(){
         }
 function litSlash(){
     $("body").addClass('flash');
-    setTimeout(litSlash2,1000);
+    $("#btnChange").addClass("norun")
+    setTimeout(litSlash2,2000);
 
 }
 function litSlash2(){
@@ -103,7 +110,26 @@ function litSlash2(){
     $("footer").remove();
     $(".back_btn").show();
 }
+// js实现帧动画
 
-
+    function animation(ele, positions, imgUrl,times){
+           ele.style.backgroundImage = 'url(' + imgUrl + ')';
+           ele.style.backgroundRepeat = 'no-repeat';
+           ele.style.animationIterationCount=times;
+           var index = 0;
+           
+           function run(){
+              var position = positions[index].split(' ');
+              ele.style.backgroundPosition = position[0] + 'px ' + position[1] + 'px';
+            
+              index++;
+              if(index >= positions.length){
+                  index = 0;
+              }
+              setTimeout(run, 80);
+           }
+           run();
+       }
+        
 </script>
 </html>
