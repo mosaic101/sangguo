@@ -42,8 +42,15 @@
     </div>
 </body>
 <script>
+    var flag = false
     window.onload = function () {
         GetRTime()
+        var img = new Image()
+        img.src = "https://wujianjin-1253209913.cos.ap-beijing.myqcloud.com/btnsprites.png"
+        img.onload = function() {
+            flag = true
+            console.log(1231232)
+        }
     }
     // $(function () {
 
@@ -78,10 +85,13 @@
                 // var positions = ['-540 -0;','-3780 -0','-1080px -0', '-1620 -0;','-2160 0','-2700 0','-3240 -0','-0 -0','-4320 -0','-4860 -0','-5400 -0','-5940 -0','-6480 -0','-7020 -0','-7560 -0'];
                 // var ele = document.getElementById('btnChange');
                 // var times=1;
-                $("#btnChange").hide();
-                $("#btnRun").removeAttr("hidden");
-                // animation(ele,positions,imgUrl,times);
-                setTimeout(litSlash, 1200);
+                // img 加载完毕才可以触发事件
+                if (flag) {
+                    $("#btnChange").hide();
+                    $("#btnRun").removeAttr("hidden");
+                    // animation(ele,positions,imgUrl,times);
+                    setTimeout(litSlash, 1200);
+                }
 
             })
 
