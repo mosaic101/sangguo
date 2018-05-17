@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=750">
+  <meta content="telephone=no" name="format-detection">
+  <meta name="referrer" content="never">
+  <meta name="keywords" content="" />
+  <title>2018句容桑果节开幕</title>
+  <link rel="stylesheet" href="css/index.css">
+  <script src="js/jquery-2.1.1.min.js"></script>
+  <script src="js/mobile-util.js"></script>
+</head>
+
+<body>
+  <header class="t_c">
+    <img src="images/title.png" style="width: 467px;">
+  </header>
+  <div class="yujiazai" style="display: none;"></div>
+  <div class="t_c">
+    <div class="btn">
+      <a href="javascript:;"></a>
+      <div alt="" id="btnChange" style="margin:0 auto;" class="norun"></div>
+    </div>
+    <div class="back_btn" style="display:none" onclick="window.close();WeixinJSBridge.call('closeWindow');">
+      <p>退出</p>
+    </div>
+  </div>
+  <footer class="t_c">
+    <p>春城五月天，醉美桑果园。</p>
+    <p>忆乡愁，不忧桑——第五届句容桑果紫酒节。</p>
+  </footer>
+  <div class="alertShow" style="display: none;">
+    <p style="padding-top:70px;">活动将在2018年5月19日</p>
+    <p>上午09:15准时开启，敬请期待！</p>
+  </div>
+  <div class="alertShow2" style="display: none;">
+    <p style="padding-top:70px;">抱歉!活动已结束~</p>
+    <p>下次早点来哦~</p>
+  </div>
+</body>
+<script>
+  $(function () {
+    GetRTime()
+  })
+
+
+
+  // 判断活动是否开始
+  function GetRTime() {
+    var StartTime = new Date('2018/05/05 23:59:59');
+    var EndTime = new Date('2018/05/19 11:05:00');
+    var NowTime = new Date();
+    var t = StartTime.getTime() - NowTime.getTime();
+    var s = NowTime.getTime() - EndTime.getTime();
+    if (t >= 0 && s < 0) {
+      // 如果未开始
+      $(".btn>a").on("click", function (e) {
+        if ($(".alertShow").is(":hidden")) {
+          $(".alertShow").show();
+        } else {
+          $(".alertShow").hide();
+        }
+        $(document).one("click", function () {
+          $(".alertShow").hide();
+        });
+        e.stopPropagation();
+      });
+      $(".alertShow").on("click", function (e) {
+        e.stopPropagation();
+      });
+    } if (t < 0 && s < 0) {
+      // 活动开始
+      $(".btn>a").on("click", function (e) {
+        //         var imgUrl = 'https://static.oschina.net/uploads/img/201805/17003402_woJO.png';
+        //      var positions = ['-540 -0;','-3780 -0','-1080px -0', '-1620 -0;','-2160 0','-2700 0','-3240 -0','-0 -0','-4320 -0','-4860 -0','-5400 -0','-5940 -0','-6480 -0','-7020 -0','-7560 -0'];
+        //      var ele = document.getElementById('btnChange');
+        // var times=1;
+        $("#btnChange").removeClass("norun");
+        $("#btnChange").addClass("btnRun");
+        // animation(ele,positions,imgUrl,times);
+        setTimeout(litSlash, 1200);
+
+      })
+
+    } if (t < 0 && s > 0) {
+      $(".btn>a").on("click", function (e) {
+        if ($(".alertShow2").is(":hidden")) {
+          $(".alertShow2").show();
+        } else {
+          $(".alertShow2").hide();
+        }
+        $(document).one("click", function () {
+          $(".alertShow2").hide();
+        });
+        e.stopPropagation();
+      })
+      $(".alertShow2").on("click", function (e) {
+        e.stopPropagation();
+      });
+    }
+
+
+  }
+  function litSlash() {
+    $("body").addClass('flash');
+    $("#btnChange").addClass("norun")
+    setTimeout(litSlash2, 1000);
+
+  }
+  function litSlash2() {
+    $(".btn").html(" <div class='endtext'><p>春城五月天，醉美桑果园。</p><p>忆乡愁，不忧桑——第五届句容桑果紫酒节。</p></div>");
+    $("footer").remove();
+    $(".back_btn").show();
+  }
+  // js实现帧动画
+
+  function animation(ele, positions, imgUrl, times) {
+    ele.style.backgroundImage = 'url(' + imgUrl + ')';
+    ele.style.backgroundRepeat = 'no-repeat';
+    ele.style.animationIterationCount = times;
+    var index = 0;
+
+    function run() {
+      var position = positions[index].split(' ');
+      ele.style.backgroundPosition = position[0] + 'px ' + position[1] + 'px';
+
+      index++;
+      if (index >= positions.length) {
+        index = 0;
+      }
+      setTimeout(run, 80);
+    }
+    run();
+  }
+
+</script>
+
+</html>
